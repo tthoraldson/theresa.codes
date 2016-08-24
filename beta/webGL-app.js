@@ -6,7 +6,7 @@ draw();
 
 function initGL(){
 	var canvas = document.getElementById("canvas");
-	console.log('canvas');
+	console.log(canvas);
 	gl = canvas.getContext("webgl");
 	gl.viewport(0, 0, canvas.width, canvas.height);
 	gl.clearColor(1, 0, 0, 1);
