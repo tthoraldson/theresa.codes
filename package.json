@@ -1,0 +1,23 @@
+{
+  "name": "theresa.codes",
+  "version": "1.0.0",
+  "description": "http://theresa.codes server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tthoraldson/theresa.codes.git"
+  },
+  "author": "theresa.thoraldson@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tthoraldson/theresa.codes/issues"
+  },
+  "homepage": "https://github.com/tthoraldson/theresa.codes#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
