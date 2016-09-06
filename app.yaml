@@ -1,4 +1,4 @@
 # [START app_ymal]
 
-runtime: node.js
+runtime: nodejs
 vm: true
