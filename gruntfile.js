@@ -5,20 +5,32 @@ module.exports = function(grunt){
 
   // CONFIGURE TASKS
   grunt.initConfig({
+    prop: 'some property',
+    pkg: grunt.file.readJSON('package.json'),
     test: {
       taskOwner: 'Theresa',
       src: 'grunt/js/test.js',
-      dest: 'somefile.js'
+      dest: 'somefile.js',
+      options: {
+        comment: '/* <%= pkg.author %> */'
+      }
     },
     multi: {
       config1: {
         message: 'This is Config1',
+        src: 'grunt/js/test.js',
         files: {
           'someotherfile.js': 'js/somefile.js'
         }
       },
       config2: {
-        message: 'This is Config2'
+        message: 'This is Config2',
+        files: [
+          {
+            src: 'js/somefile.js',
+            dest: 'someotherfile.js'
+          }
+        ]
       }
     }
   });
@@ -34,9 +46,11 @@ module.exports = function(grunt){
     //grunt.log.writeln('hello');
     //grunt.log.writeln(grunt.config.get('test.taskOwner'));
 
+    var comment = this.options().comment;
+
     var done = this.async();
     fs.readFile(grunt.config.get('test.src'), function(error, data){
-      fs.writeFile(grunt.config.get('test.dest'), data);
+      fs.writeFile(grunt.config.get('test.dest'), comment + ' \n ' + data);
       done();
     });
   });
@@ -46,7 +60,7 @@ module.exports = function(grunt){
     grunt.log.writeln(this.data.message);
 
     this.files.forEach(function(file){
-
+      grunt.log.writeln(file.src[0] + ' - ' + file.dest);
     });
   });
 }
