@@ -3,6 +3,9 @@ var fs = require('fs');
 module.exports = function(grunt){
   'use strict';
 
+  // REQUIRE GRUNT NPM DEV DEPENDICIES
+  require('load-grunt-tasks')(grunt);
+
   // CONFIGURE TASKS
   grunt.initConfig({
     prop: 'some property',
@@ -18,6 +21,7 @@ module.exports = function(grunt){
     jshint: {
       src: ['server/public/scripts/*.js']
     },
+    clean: ['grunt/**/*'],
     uglify: {
       dist: {
         files: {
@@ -40,16 +44,11 @@ module.exports = function(grunt){
     }
   });
 
-  // LOAD NPM GRUNT MODULES
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-
   // DEFAULT
   grunt.registerTask('default', function(){
     grunt.log.writeln('default task running!');
   });
 
   // TEST
-  grunt.registerTask('test', 'an example task', ['jshint', 'uglify', 'cssmin']);
+  grunt.registerTask('test', 'an example task', ['jshint', 'clean', 'uglify', 'cssmin']);
 }
