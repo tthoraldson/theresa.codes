@@ -15,52 +15,41 @@ module.exports = function(grunt){
         comment: '/* <%= pkg.author %> */'
       }
     },
-    multi: {
-      config1: {
-        message: 'This is Config1',
-        src: 'grunt/js/test.js',
+    jshint: {
+      src: ['server/public/scripts/*.js']
+    },
+    uglify: {
+      dist: {
         files: {
-          'someotherfile.js': 'js/somefile.js'
+          'grunt/graphics.min.js' : 'server/public/scripts/graphics.js'
         }
       },
-      config2: {
-        message: 'This is Config2',
-        files: [
-          {
-            src: 'js/somefile.js',
-            dest: 'someotherfile.js'
-          }
-        ]
+      options: {
+        sourceMap: true
+      }
+    },
+    cssmin: {
+      dist: {
+        files: {
+          'grunt/css.min.js' : 'server/public/styles/main.css'
+        }
+      },
+      options: {
+        sourceMap: true
       }
     }
   });
 
+  // LOAD NPM GRUNT MODULES
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+
   // DEFAULT
   grunt.registerTask('default', function(){
-    grunt.log.writeln('default task running...');
+    grunt.log.writeln('default task running!');
   });
 
   // TEST
-  grunt.registerTask('test', 'an example task', function(){
-    //grunt.config.requires('test.taskOwner');
-    //grunt.log.writeln('hello');
-    //grunt.log.writeln(grunt.config.get('test.taskOwner'));
-
-    var comment = this.options().comment;
-
-    var done = this.async();
-    fs.readFile(grunt.config.get('test.src'), function(error, data){
-      fs.writeFile(grunt.config.get('test.dest'), comment + ' \n ' + data);
-      done();
-    });
-  });
-
-  // MULTITASK
-  grunt.registerMultiTask('multi', 'An example of a MultiTask', function(){
-    grunt.log.writeln(this.data.message);
-
-    this.files.forEach(function(file){
-      grunt.log.writeln(file.src[0] + ' - ' + file.dest);
-    });
-  });
+  grunt.registerTask('test', 'an example task', ['jshint', 'uglify', 'cssmin']);
 }

@@ -1,7 +1,7 @@
 {
   "name": "theresa.codes",
   "version": "1.0.0",
-  "description": "http://theresa.codes server",
+  "description": "http://www.theresa.codes server",
   "main": "index.js",
   "scripts": {
     "start": "node server/app.js",
@@ -22,7 +22,9 @@
     "three": "^0.82.1"
   },
   "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.2",
     "grunt-contrib-jshint": "^1.0.0",
-        "grunt": "^1.0.1"
+    "grunt-contrib-uglify": "^2.0.0"
   }
 }
