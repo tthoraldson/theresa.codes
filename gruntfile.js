@@ -25,7 +25,7 @@ module.exports = function(grunt){
     uglify: {
       dist: {
         files: {
-          'grunt/graphics.min.js' : 'server/public/scripts/graphics.js'
+          'grunt/scripts/graphics.min.js' : 'server/public/scripts/graphics.js'
         }
       },
       options: {
@@ -35,20 +35,33 @@ module.exports = function(grunt){
     cssmin: {
       dist: {
         files: {
-          'grunt/css.min.js' : 'server/public/styles/main.css'
+          'grunt/styles/main.min.js' : 'server/public/styles/main.css'
         }
       },
       options: {
         sourceMap: true
       }
+    },
+    htmlbuild: {
+      dist: {
+        src: 'server/public/views/test.html',
+        dest: 'grunt/index.html',
+        options: {
+          prefix: 'grunt/',
+          relative: true,
+          scripts: {
+            'package': 'scripts/graphics.min.js'
+          },
+          styles: {
+            css: 'styles/main.min.css'
+          }
+        }
+      }
+      // ADD DEV FOR UNCOMPRESSED VERSION IF YOU SO FEEL LIKE IT
     }
   });
 
   // DEFAULT
-  grunt.registerTask('default', function(){
-    grunt.log.writeln('default task running!');
-  });
+  grunt.registerTask('default', ['jshint', 'clean', 'uglify', 'cssmin', 'htmlbuild']);
 
-  // TEST
-  grunt.registerTask('test', 'an example task', ['jshint', 'clean', 'uglify', 'cssmin']);
 }
