@@ -29,6 +29,7 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-requirejs": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
+    "grunt-git": "^1.0.1",
     "grunt-html-build": "^0.6.1",
     "load-grunt-tasks": "^3.5.2"
   }
