@@ -32,6 +32,14 @@ module.exports = function(grunt){
         sourceMap: true
       }
     },
+    requirejs: {
+      dist: {
+        options: {
+          baseUrl: 'server/public',
+          out: 'grunt'
+        }
+      }
+    },
     cssmin: {
       dist: {
         files: {
