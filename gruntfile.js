@@ -9,15 +9,6 @@ module.exports = function(grunt){
   // CONFIGURE TASKS
   grunt.initConfig({
     prop: 'some property',
-    pkg: grunt.file.readJSON('package.json'),
-    test: {
-      taskOwner: 'Theresa',
-      src: 'grunt/js/test.js',
-      dest: 'somefile.js',
-      options: {
-        comment: '/* <%= pkg.author %> */'
-      }
-    },
     jshint: {
       src: ['server/public/scripts/*.js']
     },
