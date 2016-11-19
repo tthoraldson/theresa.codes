@@ -32,10 +32,6 @@ var mesh = new THREE.Mesh(testCubeGeom, testCubemat);
 mesh.position.set(0, 0, -1000);
 scene.add(mesh);
 
-var mesh2 = new THREE.Mesh(testCubeGeom, testCubemat);
-mesh2.position.set(0, 200, -1000);
-scene.add(mesh2);
-
 
 requestAnimationFrame(render);
 
