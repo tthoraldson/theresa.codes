@@ -3,4 +3,7 @@
 
 See the random things that I've created for my website!
 
-TO DOOOO!
+*TO DOOOO!*
+- add camera to three.js scene
+- figure out changing geometry for three.js scene
+
