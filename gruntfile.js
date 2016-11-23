@@ -7,6 +7,7 @@ module.exports = function(grunt){
   require('load-grunt-tasks')(grunt);
 
   // CONFIGURE TASKS
+  // # clean up tasks that are not being used
   grunt.initConfig({
     prop: 'some property',
     jshint: {
