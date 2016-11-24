@@ -1,7 +1,6 @@
-# theresa.codes
-[theresa.codes](theresa.codes)
+# [theresa.codes](theresa.codes)
 
-See the random things that I've created for my website!
+My professional website repo. Watch my site change and evolve.
 
 *TO DOOOO!*
 - add camera to three.js scene
