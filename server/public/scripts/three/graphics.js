@@ -33,16 +33,12 @@ var mesh = new THREE.Mesh(testCubeGeom, testCubemat);
 mesh.position.set(0, 0, -1000);
 //scene.add(mesh);
 
-var geometry = new THREE.SphereGeometry( 2, 10, 10 );
-var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
-var sphere = new THREE.Mesh( geometry, material );
-sphere.position.set(0, 0, -1000);
-scene.add(sphere);
-
 requestAnimationFrame(render);
 
 // RESIZES THREE TO MATCH VIEWPORT !!!!!
 window.addEventListener( 'resize', onWindowResize, false );
+
+renderStars();
 
 ////////////////////////////
 // FUNCTION FUN ZONEEEEEE //
@@ -67,6 +63,34 @@ function onWindowResize(){
 
 }
 
-function plotStar(stars){
+// random numbers woooooooooo!
+function getRandomNum(min, max) {
+    return Math.random() * (max - min) + min;
+}
 
+// random width, according to device width
+function randomWidth(){
+  return getRandomNum(-( window.innerWidth / 3), (window.innerWidth / 3));
+}
+
+// random height, according to decice height
+function randomHeight(){
+  return getRandomNum(-( window.innerHeight / 3), (window.innerHeight / 3))
+}
+
+// Create a new star object
+function newStar(){
+  var geometry = new THREE.SphereGeometry( 2, 10, 10 );
+  var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+  var sphere = new THREE.Mesh( geometry, material );
+  sphere.position.set(randomWidth(), randomHeight(), -1000);
+  scene.add(sphere);
+}
+
+// Render
+function renderStars(){
+  console.log('starting renderStars()');
+  for (var i = 0; i < 20; i++){
+    newStar();
+  }
 }
