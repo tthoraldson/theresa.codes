@@ -3,7 +3,10 @@ var renderer = new THREE.WebGLRenderer({
   antialias: true
 });
 
-renderer.setClearColor(0x457585);
+// set background color
+renderer.setClearColor(0x000);
+
+// set canvas size
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -23,28 +26,47 @@ scene.add(light2);
 
 // create cube
 var testCubeGeom = new THREE.BoxGeometry(100, 100, 100);
-
-// set material
 var testCubemat = new THREE.MeshLambertMaterial({color: 0xF3FFE2});
 
-// set mesh
+//set mesh
 var mesh = new THREE.Mesh(testCubeGeom, testCubemat);
 mesh.position.set(0, 0, -1000);
-scene.add(mesh);
+//scene.add(mesh);
 
+var geometry = new THREE.SphereGeometry( 2, 10, 10 );
+var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+var sphere = new THREE.Mesh( geometry, material );
+sphere.position.set(0, 0, -1000);
+scene.add(sphere);
 
 requestAnimationFrame(render);
 
+// RESIZES THREE TO MATCH VIEWPORT !!!!!
+window.addEventListener( 'resize', onWindowResize, false );
+
+////////////////////////////
+// FUNCTION FUN ZONEEEEEE //
+////////////////////////////
+
+// cute lil rotate function
 function render(){
   mesh.rotation.x += 0.01;
   mesh.rotation.y += 0.01;
 
-  mesh2.rotation.x += 0.01;
-  mesh2.rotation.y += 0.01;
-
-  mesh3.rotation.x += 0.01;
-  mesh3.rotation.y += 0.01;
-
   renderer.render(scene, camera);
   requestAnimationFrame(render);
+}
+
+// actively updates window on resize
+function onWindowResize(){
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+function plotStar(stars){
+
 }
