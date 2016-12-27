@@ -50,6 +50,17 @@ window.addEventListener( 'resize', onWindowResize, false );
 
 renderStars();
 
+// cool line code stuff
+// var material = new THREE.LineBasicMaterial({
+//   color: 0xffffff
+// });
+// var geometry = new THREE.Geometry();
+// geometry.vertices.push(new THREE.Vector3(10, 0, -1000));
+// geometry.vertices.push(new THREE.Vector3(0, 10, -1000));
+// geometry.vertices.push(new THREE.Vector3(10, 100, -100));
+// var line = new THREE.Line(geometry, material);
+// scene.add(line);
+
 ////////////////////////////
 // FUNCTION FUN ZONEEEEEE //
 ////////////////////////////
@@ -80,20 +91,20 @@ function getRandomNum(min, max) {
 
 // random width, according to device width
 function randomWidth(){
-  return getRandomNum(-( window.innerWidth / 3), (window.innerWidth / 3));
+  return getRandomNum(-( window.innerWidth / 2.7), (window.innerWidth / 2.7));
 }
 
 // random height, according to decice height
 function randomHeight(){
-  return getRandomNum(-( window.innerHeight / 3), (window.innerHeight / 3))
+  return getRandomNum(-( window.innerHeight / 2.7), (window.innerHeight / 2.7))
 }
 
 // Create a new star object
 function newStar(){
-  var name = 'star' + starID;
   var geometry = new THREE.SphereGeometry( 2, 10, 10 );
   var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
   var sphere = new THREE.Mesh( geometry, material );
+  sphere.name = starID;
   sphere.position.set(randomWidth(), randomHeight(), -1000);
   scene.add(sphere);
 }
@@ -102,9 +113,10 @@ function newStar(){
 function renderStars(){
   // star ID identifies each unique star
   var starID = 1;
-  console.log('starting renderStars()');
   for (var i = 0; i < 20; i++){
     newStar();
     starID++;
   }
 }
+
+console.log(scene.getObjectByName(1));
