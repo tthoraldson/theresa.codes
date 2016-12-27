@@ -1,7 +1,17 @@
+//////////////////////
+// GLOBAL VARIABLES //
+//////////////////////
+var starID = 1;
+
+//////////////
+// THREE.js //
+//////////////
+
 var renderer = new THREE.WebGLRenderer({
   canvas: document.getElementById('mainCanvas'),
   antialias: true
 });
+
 
 // set background color
 renderer.setClearColor(0x000);
@@ -80,6 +90,7 @@ function randomHeight(){
 
 // Create a new star object
 function newStar(){
+  var name = 'star' + starID;
   var geometry = new THREE.SphereGeometry( 2, 10, 10 );
   var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
   var sphere = new THREE.Mesh( geometry, material );
@@ -89,8 +100,11 @@ function newStar(){
 
 // Render
 function renderStars(){
+  // star ID identifies each unique star
+  var starID = 1;
   console.log('starting renderStars()');
   for (var i = 0; i < 20; i++){
     newStar();
+    starID++;
   }
 }

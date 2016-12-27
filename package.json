@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify server/public/scripts/app.js -o server/public/scripts/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,9 @@
     "angular-animate": "^1.5.9",
     "angular-aria": "^1.5.9",
     "angular-material": "^1.1.1",
+    "browserify": "^13.1.1",
     "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-cssmin": "^1.0.2",
