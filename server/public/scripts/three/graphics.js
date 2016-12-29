@@ -48,7 +48,7 @@ requestAnimationFrame(render);
 // RESIZES THREE TO MATCH VIEWPORT !!!!!
 window.addEventListener( 'resize', onWindowResize, false );
 
-renderStars();
+initStars();
 
 // cool line code stuff
 // var material = new THREE.LineBasicMaterial({
@@ -104,13 +104,13 @@ function newStar(){
   var geometry = new THREE.SphereGeometry( 2, 10, 10 );
   var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
   var sphere = new THREE.Mesh( geometry, material );
-  sphere.name = starID;
+  sphere.name = 'jim' + starID;
   sphere.position.set(randomWidth(), randomHeight(), -1000);
   scene.add(sphere);
 }
 
 // Render
-function renderStars(){
+function initStars(){
   // star ID identifies each unique star
   var starID = 1;
   for (var i = 0; i < 20; i++){
@@ -119,4 +119,5 @@ function renderStars(){
   }
 }
 
-console.log(scene.getObjectByName(1));
+var foundObject = scene.getObjectByName('jim');
+console.log(foundObject);

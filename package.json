@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify server/public/scripts/app.js -o server/public/scripts/bundle.js"
+    "build": "browserify server/public/scripts/app.js -o server/public/scripts/bundle.js",
+    "package": "grunt"
   },
   "repository": {
     "type": "git",
