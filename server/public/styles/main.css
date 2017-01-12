@@ -5,3 +5,27 @@ h1 {
 canvas {
   background: red;
 }
+
+/* Classes */
+.header {
+  position: fixed;
+  margin: auto;
+
+  top: 25%;
+  left: 15%;
+  right: 15%;
+}
+
+.header h1, .header h2 {
+  color: white;
+  text-align: center;
+}
+
+.header h1 {
+    font-size: 5em;
+}
+
+.header h2 {
+    font-size: 3em;
+}
+/* IDs */
