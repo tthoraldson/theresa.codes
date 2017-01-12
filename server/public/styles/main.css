@@ -1,6 +1,7 @@
 /* CSS IS SO DARN COOL */
 
 body {
+  /* 1em = 10px */
   font-size: 62.5%;
 }
 
@@ -14,33 +15,43 @@ canvas {
 
 /* Classes */
 .svg-size {
-   width: 10%;
-   height: 10%;
+   width: 8em;
+   height: 8em%;
 }
 
 /* IDs */
 #header {
   position: fixed;
-  padding: 10%;
+  padding: 1em;
 
-  top: 10%;
-  left: 10%;
-  right: 10%;
+  top: 30%;
+  left: 20%;
+  right: 20%;
 
   background-color: rgba(100, 100, 100, 0.25);
 }
 
-#header h1, #header h2 {
+#header h1,
+#header h2 {
   color: white;
   text-align: center;
+  font-family: 'Oswald', sans-serif;
 }
 
 #header h1 {
-    font-size: 5em;
+    font-size: 10em;
+    padding-bottom: 0.25em;
 }
 
 #header h2 {
-    font-size: 3em;
+    font-size: 6em;
+}
+
+#header a:link,
+#header a:visited,
+#header a:active,
+#header a:hover{
+  text-decoration: none;
 }
 
 #social-icons {

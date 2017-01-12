@@ -1,3 +1,6 @@
+// uncomment window.innerHeight for dev round II
+
+
 
 //////////////////////
 // GLOBAL VARIABLES //
@@ -19,7 +22,7 @@ renderer.setClearColor(0x000);
 
 // set canvas size
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight - (window.innerHeight * 0.1));
+renderer.setSize(window.innerWidth, window.innerHeight /*- (window.innerHeight * 0.1)*/);
 
 // set camera
 var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 3000);
@@ -78,10 +81,10 @@ function render(){
 // actively updates window on resize
 function onWindowResize(){
 
-    camera.aspect = window.innerWidth / (window.innerHeight - (window.innerHeight * 0.1));
+    camera.aspect = window.innerWidth / (window.innerHeight /*- (window.innerHeight * 0.1)*/);
     camera.updateProjectionMatrix();
 
-    renderer.setSize( window.innerWidth, (window.innerHeight - (window.innerHeight * 0.1)));
+    renderer.setSize( window.innerWidth, (window.innerHeight /*- (window.innerHeight * 0.1)*/));
 
 }
 
