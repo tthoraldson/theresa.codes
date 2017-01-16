@@ -3,5 +3,4 @@
 
 My professional website repo. Watch my site change and evolve.
 
-**TO DOOOO!**
-- fix grunt
+![Website Example](/photos/example.png)
