@@ -5,7 +5,7 @@ var starID = 1;
 
 ////////////////////////////
 // THREE.js Boiler Plate! //
-///////////////////////////
+////////////////////////////
 
 var renderer = new THREE.WebGLRenderer({
   canvas: document.getElementById('mainCanvas'),
@@ -59,7 +59,7 @@ var material = new THREE.LineBasicMaterial({
 });
 var geometry = new THREE.Geometry();
 
-geometry.vertices.push(new THREE.Vector3(10, 10, -1000));
+geometry.vertices.push(new THREE.Vector3(10, 10, -100));
 geometry.vertices.push(new THREE.Vector3(10, 100, -100));
 var line = new THREE.Line(geometry, material);
 
