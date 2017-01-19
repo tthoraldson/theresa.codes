@@ -6,6 +6,9 @@ var tempWidth;
 var tempHeight
 var segmentCount;
 
+// SET MAX POINTS TO A NUMBER DIVISABLE BY 3!!!
+var maxPoints = 42;
+
 ////////////////////////////
 // THREE.js Boiler Plate! //
 ////////////////////////////
@@ -47,8 +50,9 @@ window.addEventListener( 'resize', onWindowResize, false );
 /////////////////////
 
 generatePoints();
-initStars();
+//initStars();
 connectStars();
+
 
 
 /////////////////////
@@ -98,7 +102,7 @@ function randomHeight(){
 
 // generates 21 random points determined by window width and height
 function generatePoints(){
-  for (var i = 0; i < 21; i++){
+  for (var i = 0; i < maxPoints; i++){
     var tempPointArray = [];
     tempPointArray.push(randomWidth());
     tempPointArray.push(randomHeight());
@@ -119,7 +123,7 @@ function newStar(){
 function initStars(){
   // star ID identifies each unique star
   var starID = 1;
-  for (var i = 0; i < 21; i++){
+  for (var i = 0; i < maxPoints; i++){
     tempWidth = points[i][0];
     tempHeight = points[i][1]
     newStar();
@@ -128,7 +132,7 @@ function initStars(){
 
 // Create line segments between three points (illumanati confirmed...)!
 function connectStars(){
-  for (var i = 0; i < 21; i += 3){
+  for (var i = 0; i < maxPoints; i += 3){
     var point1 = points[i];
     var point2 = points[i + 1];
     var point3 = points[i + 2];
