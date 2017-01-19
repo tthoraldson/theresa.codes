@@ -1,7 +1,8 @@
 //////////////////////
 // GLOBAL VARIABLES //
 //////////////////////
-var starID = 1;
+var points = [];
+
 
 ////////////////////////////
 // THREE.js Boiler Plate! //
@@ -43,27 +44,18 @@ window.addEventListener( 'resize', onWindowResize, false );
 // Custom Three.js //
 /////////////////////
 
-// // create cube
-// var testCubeGeom = new THREE.BoxGeometry(100, 100, 100);
-// var testCubemat = new THREE.MeshLambertMaterial({color: 0xF3FFE2});
+generatePoints();
+
+// var material = new THREE.LineBasicMaterial({
+//   color: 0xffffff
+// });
+// var geometry = new THREE.Geometry();
 //
-// //set mesh
-// var mesh = new THREE.Mesh(testCubeGeom, testCubemat);
-// mesh.position.set(0, 0, -1000);
-// scene.add(mesh);
-
-
-
-var material = new THREE.LineBasicMaterial({
-  color: 0xffffff
-});
-var geometry = new THREE.Geometry();
-
-geometry.vertices.push(new THREE.Vector3(10, 10, -100));
-geometry.vertices.push(new THREE.Vector3(10, 100, -100));
-var line = new THREE.Line(geometry, material);
-
-scene.add(line);
+// geometry.vertices.push(new THREE.Vector3(10, 10, -100));
+// geometry.vertices.push(new THREE.Vector3(10, 100, -100));
+// var line = new THREE.Line(geometry, material);
+//
+// scene.add(line);
 
 
 /////////////////////
@@ -109,4 +101,33 @@ function randomWidth(){
 // random height, according to decice height
 function randomHeight(){
   return getRandomNum(-( window.innerHeight / 2.7), (window.innerHeight / 2.7))
+}
+
+// generates 21 random points determined by window width and height
+function generatePoints(){
+  for (var i = 0; i < 21; i++){
+    var tempPointArray = [];
+    tempPointArray.push(randomWidth());
+    tempPointArray.push(randomHeight());
+    points.push(tempPointArray);
+  }
+}
+
+// Create a new star object
+function newStar(){
+  var geometry = new THREE.SphereGeometry( 2, 10, 10 );
+  var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+  var sphere = new THREE.Mesh( geometry, material );
+  sphere.position.set(randomWidth(), randomHeight(), -1000);
+  scene.add(sphere);
+}
+
+// Render
+function initStars(){
+  // star ID identifies each unique star
+  var starID = 1;
+  for (var i = 0; i < 20; i++){
+    newStar();
+    starID++;
+  }
 }
