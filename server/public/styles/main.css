@@ -28,7 +28,7 @@ canvas {
   left: 20%;
   right: 20%;
 
-  background-color: rgba(100, 100, 100, 0.25);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #header h1,

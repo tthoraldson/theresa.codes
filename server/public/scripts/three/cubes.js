@@ -2,7 +2,9 @@
 // GLOBAL VARIABLES //
 //////////////////////
 var points = [];
-
+var tempWidth;
+var tempHeight
+var segmentCount;
 
 ////////////////////////////
 // THREE.js Boiler Plate! //
@@ -45,17 +47,8 @@ window.addEventListener( 'resize', onWindowResize, false );
 /////////////////////
 
 generatePoints();
-
-// var material = new THREE.LineBasicMaterial({
-//   color: 0xffffff
-// });
-// var geometry = new THREE.Geometry();
-//
-// geometry.vertices.push(new THREE.Vector3(10, 10, -100));
-// geometry.vertices.push(new THREE.Vector3(10, 100, -100));
-// var line = new THREE.Line(geometry, material);
-//
-// scene.add(line);
+initStars();
+connectStars();
 
 
 /////////////////////
@@ -113,21 +106,54 @@ function generatePoints(){
   }
 }
 
-// Create a new star object
+// Create a new star object based on a point from the points array
 function newStar(){
-  var geometry = new THREE.SphereGeometry( 2, 10, 10 );
+  var geometry = new THREE.SphereGeometry( 3, 10, 10 );
   var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
   var sphere = new THREE.Mesh( geometry, material );
-  sphere.position.set(randomWidth(), randomHeight(), -1000);
+  sphere.position.set(tempWidth, tempHeight, -1000);
   scene.add(sphere);
 }
 
-// Render
+// Render all stars based on newStar function
 function initStars(){
   // star ID identifies each unique star
   var starID = 1;
-  for (var i = 0; i < 20; i++){
+  for (var i = 0; i < 21; i++){
+    tempWidth = points[i][0];
+    tempHeight = points[i][1]
     newStar();
-    starID++;
+  }
+}
+
+// Create line segments between three points (illumanati confirmed...)!
+function connectStars(){
+  for (var i = 0; i < 21; i += 3){
+    var point1 = points[i];
+    var point2 = points[i + 1];
+    var point3 = points[i + 2];
+
+    var material = new THREE.LineBasicMaterial({
+      color: 0xffffff
+    });
+    var geometry = new THREE.Geometry();
+
+    // segment between point 1 && 2
+    geometry.vertices.push(new THREE.Vector3(point1[0], point1[1], -1000));
+    geometry.vertices.push(new THREE.Vector3(point2[0], point2[1], -1000));
+    var line = new THREE.Line(geometry, material);
+    scene.add(line);
+
+    // segment between point 2 && 3
+    geometry.vertices.push(new THREE.Vector3(point2[0], point2[1], -1000));
+    geometry.vertices.push(new THREE.Vector3(point3[0], point3[1], -1000));
+    line = new THREE.Line(geometry, material);
+    scene.add(line);
+
+    // segment between point 3 && 1
+    geometry.vertices.push(new THREE.Vector3(point3[0], point3[1], -1000));
+    geometry.vertices.push(new THREE.Vector3(point1[0], point1[1], -1000));
+    line = new THREE.Line(geometry, material);
+    scene.add(line);
   }
 }
