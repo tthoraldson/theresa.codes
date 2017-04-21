@@ -4,3 +4,5 @@
 My professional website repo. Watch my site change and evolve.
 
 ![Website Example](/photos/example.png)
+
+:')
