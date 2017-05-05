@@ -20,7 +20,14 @@
   },
   "homepage": "https://github.com/tthoraldson/theresa.codes#readme",
   "dependencies": {
-    "express": "^4.14.0",
+    "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-aria": "^1.6.4",
+    "angular-material": "^1.1.4",
+    "express": "^4.15.2",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-uglify": "^2.3.0",
+    "grunt-html-build": "^0.6.2",
     "three": "^0.82.1"
   },
   "devDependencies": {
