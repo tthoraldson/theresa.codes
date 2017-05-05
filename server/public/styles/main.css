@@ -3,6 +3,7 @@
 body {
   /* 1em = 10px */
   font-size: 62.5%;
+  background-color: #000;
 }
 
 h1 {
@@ -10,7 +11,7 @@ h1 {
 }
 
 canvas {
-  background: #FFFFFF;
+  background: #000;
 }
 
 /* Classes */
