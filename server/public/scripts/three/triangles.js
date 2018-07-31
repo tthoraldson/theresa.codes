@@ -49,11 +49,13 @@ window.addEventListener( 'resize', onWindowResize, false );
 // Custom Three.js //
 /////////////////////
 
-generatePoints();
-initStars();
-connectStars();
+// generatePoints();
+// // initStars();
+// connectStars();
 
-
+// beta
+xgeneratePoints();
+xconnectStars();
 
 /////////////////////
 // RENDER Three.js //
@@ -181,13 +183,20 @@ function connectStars(){
 
 
 /// super beta stuff right here
+function pointObject(id) {
+    this.id = id;
+    this.x = randomWidth();
+    this.y = randomHeight();
+}
+
 // generates 21 random points determined by window width and height
 function xgeneratePoints(){
   for (var i = 0; i < maxPoints; i++){
-    tempStarObject = pointObject;
-    tempStarObject.id = i;
+    tempStarObject = new pointObject(i);
+    console.log(tempStarObject);
     points.push(tempStarObject);
   }
+  console.log(points);
 }
 
 function xconnectStars(){
@@ -220,21 +229,8 @@ function xconnectStars(){
   scene.add(line);
 
   // segment between point 3 && 1
-  geometry.vertices.push(new THREE.Vector3(point3.x, point3[1], -1000));
-  geometry.vertices.push(new THREE.Vector3(point1[0], point1[1], -1000));
+  geometry.vertices.push(new THREE.Vector3(point3.x, point3.y, -1000));
+  geometry.vertices.push(new THREE.Vector3(point1.x, point1.y, -1000));
   line = new THREE.Line(geometry, material);
   scene.add(line);
 }
-
-var pointObject = {
-  id: 0,
-  x: randomWidth(),
-  y: randomHeight(),
-  fullName : function() {
-      this.x = 0;
-      this.y = 0;
-  }
-}
-
-
-console.log(pointObject);
