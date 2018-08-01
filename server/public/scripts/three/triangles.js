@@ -149,38 +149,6 @@ function initStars(){
   }
 }
 
-// Create line segments between three points (illumanati confirmed...)!
-function connectStars(){
-  for (var i = 0; i < maxPoints; i += 3){
-    var point1 = points[i];
-    var point2 = points[i + 1];
-    var point3 = points[i + 2];
-
-    var material = new THREE.LineBasicMaterial({
-      color: 0xffffff
-    });
-    var geometry = new THREE.Geometry();
-
-    // segment between point 1 && 2
-    geometry.vertices.push(new THREE.Vector3(point1[0], point1[1], -1000));
-    geometry.vertices.push(new THREE.Vector3(point2[0], point2[1], -1000));
-    var line = new THREE.Line(geometry, material);
-    scene.add(line);
-
-    // segment between point 2 && 3
-    geometry.vertices.push(new THREE.Vector3(point2[0], point2[1], -1000));
-    geometry.vertices.push(new THREE.Vector3(point3[0], point3[1], -1000));
-    line = new THREE.Line(geometry, material);
-    scene.add(line);
-
-    // segment between point 3 && 1
-    geometry.vertices.push(new THREE.Vector3(point3[0], point3[1], -1000));
-    geometry.vertices.push(new THREE.Vector3(point1[0], point1[1], -1000));
-    line = new THREE.Line(geometry, material);
-    scene.add(line);
-  }
-}
-
 
 /// super beta stuff right here
 function pointObject(id) {
@@ -205,11 +173,6 @@ function xconnectStars(){
     var point2 = points[i + 1];
     var point3 = points[i + 2];
 
-  }
-  for (var i = 0; i < maxPoints; i++){
-    var temp = pointObject;
-    points.push(temp);
-  }
 
   var material = new THREE.LineBasicMaterial({
     color: 0xffffff
@@ -233,4 +196,5 @@ function xconnectStars(){
   geometry.vertices.push(new THREE.Vector3(point1.x, point1.y, -1000));
   line = new THREE.Line(geometry, material);
   scene.add(line);
+}
 }
