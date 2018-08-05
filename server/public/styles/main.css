@@ -20,6 +20,10 @@ canvas {
    height: 8em%;
 }
 
+.aws-certs {
+  width: 100px;
+}
+
 /* IDs */
 #header {
   position: fixed;
@@ -59,4 +63,9 @@ canvas {
   text-align: center;
 
   padding-top: 3%;
+}
+
+#digital-badges {
+  padding-top: 10px;
+  text-align: center;
 }
