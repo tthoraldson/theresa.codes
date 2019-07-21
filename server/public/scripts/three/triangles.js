@@ -8,7 +8,8 @@ var tempHeight
 var segmentCount;
 
 // SET MAX POINTS TO A NUMBER DIVISABLE BY 3!!!
-var maxPoints = 42;
+const numberOfTriangles = 42;
+const zPoint = -1000;
 
 ////////////////////////////
 // THREE.js Boiler Plate! //
@@ -22,23 +23,16 @@ document.body.appendChild(renderer.domElement);
 
 // set background color
 renderer.setClearColor(0x000);
-
-// set canvas size
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight /*- (window.innerHeight * 0.1)*/);
 
-// set camera perspective
 var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 3000);
-// camera.position.set(0, 0, 0);
-
-// set scene
 var scene = new THREE.Scene();
 
-// set light
+// set lights
 var light1 = new THREE.AmbientLight(0xFFFFFF, 0.5);
-scene.add(light1);
-
 var light2 = new THREE.PointLight(0xFFFFFF, 0.5);
+scene.add(light1);
 scene.add(light2);
 
 // RESIZES THREE TO MATCH VIEWPORT !!!!!
@@ -46,18 +40,31 @@ window.addEventListener( 'resize', onWindowResize, false );
 
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 
+var geom = new THREE.Geometry();
+var v1 = new THREE.Vector3(randomWidth(),randomHeight(),zPoint);
+var v2 = new THREE.Vector3(randomWidth(),randomHeight(),zPoint);
+var v3 = new THREE.Vector3(randomWidth(),randomHeight(),zPoint);
+
+geom.vertices.push(v1);
+geom.vertices.push(v2);
+geom.vertices.push(v3);
+
+geom.faces.push( new THREE.Face3( 0, 1, 2 ) );
+geom.computeFaceNormals();
+
+var mesh= new THREE.Mesh( geom, new THREE.MeshNormalMaterial() );
+
 // beta
-xgeneratePoints();
-xconnectStars();
-addLinesToScene();
-onWindowResize();
+// xgeneratePoints();
+// xconnectStars();
+// addLinesToScene();
+// onWindowResize();
 
 /////////////////////
 // RENDER Three.js //
 /////////////////////
 
 requestAnimationFrame(render);
-updateLine(lines[0]);
 animate();
 
 
@@ -90,7 +97,6 @@ function onWindowResize(){
 
 }
 
-// random numbers woooooooooo!
 function getRandomNum(min, max) {
     return Math.random() * (max - min) + min;
 }
@@ -120,6 +126,39 @@ function xMovement(axis, point){
     }
   }
 }
+
+function triangle(id, point1, point2, point3, color) {
+  this.id = id;
+  this.point1 = null;
+  this.point2 = point2;
+  this.point3 = point3;
+  this.color = color;
+  this.initialize = function() {
+    var geometry = new THREE.Geometry();
+
+    var a = new THREE.Vector3(point1[0], point1[1], point1[2]);
+    var b = new THREE.Vector3(point2[0], point2[1], point2[2]);
+    var c = new THREE.Vector3(point3[0], point3[1], point3[2]);
+
+    //this.
+  };
+  this.animate = function() {
+
+  };
+  this.newColor = function() {
+
+  }
+}
+
+function initalizePoints() {
+  return []
+}
+
+var demoTriangle = new triangle(
+  [randomWidth(), randomHeight(), zPoint],
+  [randomWidth(), randomHeight(), zPoint],
+  [randomWidth(), randomHeight(), zPoint],
+  "0xFFFFFF");
 
 
 // generates 21 random points determined by window width and height
@@ -220,13 +259,4 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize( window.innerWidth, window.innerHeight );
-}
-
-function updateLine(line){
-  // Change the object's position
-  console.log(line);
-    line.position.set( 9382, 3333, 1000 );
-    line.__dirtyPosition = true;
-    scene.add(line);
-    requestAnimationFrame(render);
 }

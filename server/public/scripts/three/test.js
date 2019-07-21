@@ -1,47 +1,87 @@
-// Set up the scene, camera, and renderer as global variables.
-var scene, camera, renderer;
+const zPoint = -1000;
 
-init();
-animate();
+// Create an empty scene
+var scene = new THREE.Scene();
 
-// Sets up the scene.
-function init() {
-  // Create the scene and set the scene size.
-  scene = new THREE.Scene();
-  var WIDTH = 400,
-      HEIGHT = 300;
+// Create a basic perspective camera
+var camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 0.1, 3000 );
+//camera.position.z = 4;
 
-  // Create a renderer and add it to the DOM.
-  renderer = new THREE.WebGLRenderer({antialias:true});
-  renderer.setSize(WIDTH, HEIGHT);
-  document.body.appendChild(renderer.domElement);
-  renderer.domElement.id = "context"
+// set lights
+var light1 = new THREE.AmbientLight(0xFFFFFF, 0.5);
+var light2 = new THREE.PointLight(0xFFFFFF, 0.5);
+scene.add(light1);
+scene.add(light2);
 
-  // Create a camera, zoom it out from the model a bit, and add it to the scene.
-  camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 0.1, 20000);
-  camera.position.set(0,6,0);
-  scene.add(camera);
+// RESIZES THREE TO MATCH VIEWPORT !!!!!
+window.addEventListener( 'resize', onWindowResize, false );
 
-  // Create a light, set its position, and add it to the scene.
-  var light = new THREE.PointLight(0xffffff);
-  light.position.set(-100,200,100);
-  scene.add(light);
+// Create a renderer with Antialiasing
+var renderer = new THREE.WebGLRenderer({
+  canvas: document.getElementById('mainCanvas'),
+  antialias: true
+});
 
-  // Add a white PointLight to the scene.
-  var loader = new THREE.JSONLoader();
-  loader.load( 'https://codepen.io/nickpettit/pen/nqyaK.js', function(geometry){
-    var material = new THREE.MeshLambertMaterial({color: 0x55B663});
-    mesh = new THREE.Mesh( geometry, material);
-    scene.add(mesh);
-  });
+// Configure renderer clear color
+renderer.setClearColor("#000000");
 
-  // Add OrbitControls so that we can pan around with the mouse.
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
+// Configure renderer size
+renderer.setSize( window.innerWidth, window.innerHeight );
+
+// Append Renderer to DOM
+document.body.appendChild( renderer.domElement );
+
+// Create a Cube Mesh with basic material
+var geometry = new THREE.Geometry();
+var material = new THREE.MeshBasicMaterial( { color: "#433F81" } );
+//var cube = new THREE.Mesh( geometry, material );
+
+
+geometry.vertices.push(new THREE.Vector3( randomWidth(),randomHeight(),zPoint ));
+geometry.vertices.push(new THREE.Vector3( randomWidth(),randomHeight(),zPoint ));
+geometry.vertices.push(new THREE.Vector3( randomWidth(),randomHeight(),zPoint ));
+geometry.faces.push(new THREE.Face3(0, 1, 2));
+
+var material = new THREE.MeshBasicMaterial({color: 0xFF0000, side: THREE.DoubleSide});
+
+var triangle = new THREE.Mesh( geometry, material );
+
+
+// Add cube to Scene
+scene.add( triangle );
+
+// Render Loop
+var render = function () {
+  requestAnimationFrame( render );
+
+  // Render the scene
+  renderer.render(scene, camera);
+};
+
+
+render();
+
+function getRandomNum(min, max) {
+    return Math.random() * (max - min) + min;
 }
 
-// Renders the scene and updates the render as needed.
-function animate() {
-  requestAnimationFrame( animate );
-  renderer.render( scene, camera );
-  controls.update();
+// random width, according to device width
+function randomWidth(){
+  return getRandomNum(-( window.innerWidth / 2.7), (window.innerWidth / 2.7));
+}
+
+// random height, according to decice height
+function randomHeight(){
+  return getRandomNum(-( window.innerHeight / 2.7), (window.innerHeight / 2.7))
+}
+
+function randomPoint(){
+  var array = [randomWidth(), randomHeight(), zPoint];
+  return array;
+}
+
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize( window.innerWidth, window.innerHeight );
 }
