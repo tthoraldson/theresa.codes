@@ -134,7 +134,7 @@ function initVelocities(){
 }
 
 function createVelocity(){
-  return {x: getRandomNum(0.01,1), y: getRandomNum(0.01,1)}
+  return {x: getRandomNum(0.01,0.5), y: getRandomNum(0.01,0.5)}
 }
 
 function createTriangle(){
