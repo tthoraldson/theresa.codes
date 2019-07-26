@@ -73,7 +73,7 @@ function render() {
     objectList[x].geometry.verticesNeedUpdate = true;
     for (var i=0; i<3; i++){
       objectList[x].geometry.vertices[i].x += movements(x, i, objectList[x].geometry.vertices[i].x, objectList[x].futurePosition[i].x) * objectList[x].velocites[i].x;
-      objectList[x].geometry.vertices[i].y += movements(x, i, objectList[x].geometry.vertices[i].y, objectList[x].futurePosition[i].y) * objectList[x].velocites[i].x;
+      objectList[x].geometry.vertices[i].y += movements(x, i, objectList[x].geometry.vertices[i].y, objectList[x].futurePosition[i].y) * objectList[x].velocites[i].y;
     }
   }
 
