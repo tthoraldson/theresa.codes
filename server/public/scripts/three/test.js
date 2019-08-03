@@ -38,27 +38,9 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 // Append Renderer to DOM
 document.body.appendChild( renderer.domElement );
 
-// var geometry = new THREE.Geometry();
-// geometry.vertices.push(new THREE.Vector3( randomWidth(),randomHeight(),zPoint ));
-// geometry.vertices.push(new THREE.Vector3( randomWidth(),randomHeight(),zPoint ));
-// geometry.vertices.push(new THREE.Vector3( randomWidth(),randomHeight(),zPoint ));
-// geometry.faces.push(new THREE.Face3(0, 1, 2));
-//
-// var material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, side: THREE.DoubleSide, wireframe: true,  wireframeLinewidth: 5});
-//
-// var triangle = new THREE.Mesh( geometry, material );
-//
-// scene.add( triangle );
-// triangle.verticesNeedUpdate = true;
-// triangle.futurePosition = [new THREE.Vector3(randomWidth(),randomHeight(),zPoint), new THREE.Vector3(randomWidth(),randomHeight(),zPoint), new THREE.Vector3(randomWidth(),randomHeight(),zPoint)];
-// triangle.velocites = initVelocities();
-
-
 for (var i=0; i<triangleCount; i++){
   objectList.push(createTriangle())
 }
-
-
 
 render();
 
@@ -144,7 +126,7 @@ function createTriangle(){
   geometry.vertices.push(new THREE.Vector3( randomWidth(),randomHeight(),zPoint ));
   geometry.faces.push(new THREE.Face3(0, 1, 2));
 
-  var material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, side: THREE.DoubleSide, wireframe: true,  wireframeLinewidth: 5});
+  var material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, side: THREE.DoubleSide, wireframe: true,  wireframeLinewidth: 1});
 
   var triangle = new THREE.Mesh( geometry, material );
 
