@@ -3,6 +3,7 @@
 ////////////////////////////
 const triangleCount = 15;
 const zPoint = -1000;
+const maxVelocity = 0.5;
 let controls;
 var objectList = [];
 
@@ -116,7 +117,7 @@ function initVelocities(){
 }
 
 function createVelocity(){
-  return {x: getRandomNum(0.01,0.5), y: getRandomNum(0.01,0.5)}
+  return {x: getRandomNum(0.01, maxVelocity), y: getRandomNum(0.01, maxVelocity)}
 }
 
 function createTriangle(){
