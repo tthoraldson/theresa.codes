@@ -14,6 +14,11 @@ var scene = new THREE.Scene();
 // Create a basic perspective camera
 var camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 0.1, 3000 );
 
+// Create Raycaster, Mouse
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2();
+window.addEventListener( 'mousemove', onMouseMove, false );
+
 
 // set lights
 var light1 = new THREE.AmbientLight(0xFFFFFF, 0.5);
@@ -52,6 +57,16 @@ render();
 function render() {
   requestAnimationFrame( render );
 
+  raycaster.setFromCamera( mouse, camera );
+
+  var intersects = raycaster.intersectObjects( scene.children );
+
+
+  for ( var i = 0; i < intersects.length; i++ ) {
+		intersects[i].object.material.color.set( 0xff0000 );
+	}
+
+
   for (x=0; x<triangleCount; x++){
     objectList[x].geometry.verticesNeedUpdate = true;
     for (var i=0; i<3; i++){
@@ -70,12 +85,12 @@ function getRandomNum(min, max) {
 
 // random width, according to device width
 function randomWidth(){
-  return getRandomNum(-( window.innerWidth / 2.7), (window.innerWidth / 2.7));
+  return getRandomNum(-( window.innerWidth/2), (window.innerWidth/2));
 }
 
 // random height, according to decice height
 function randomHeight(){
-  return getRandomNum(-( window.innerHeight / 2.7), (window.innerHeight / 2.7))
+  return getRandomNum(-( window.innerHeight/2), (window.innerHeight/2))
 }
 
 function randomPoint(){
@@ -99,7 +114,7 @@ function movements(x, i, currentPosition, futurePosition) {
     objectList[x].futurePosition[i].x = randomWidth();
     objectList[x].futurePosition[i].y = randomHeight();
     objectList[x].velocites[i] = createVelocity();
-    console.log(objectList[x].velocites);
+    // console.log(objectList[x].velocites);
     return 0
   } else {
     if (currentPosition - futurePosition > 0){
@@ -140,4 +155,10 @@ function createTriangle(){
   triangle.velocites = initVelocities();
 
   return triangle
+}
+
+function onMouseMove( event ) {
+	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
 }
