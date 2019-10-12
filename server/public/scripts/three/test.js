@@ -59,12 +59,12 @@ function render() {
 
   raycaster.setFromCamera( mouse, camera );
 
-  var intersects = raycaster.intersectObjects( scene.children );
-
-
-  for ( var i = 0; i < intersects.length; i++ ) {
-		intersects[i].object.material.color.set( 0xff0000 );
-	}
+  // var intersects = raycaster.intersectObjects( scene.children );
+  //
+  //
+  // for ( var i = 0; i < intersects.length; i++ ) {
+	// 	intersects[i].object.material.color.set( 0xff0000 );
+	// }
 
 
   for (x=0; x<triangleCount; x++){
