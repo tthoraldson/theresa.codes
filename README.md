@@ -9,3 +9,5 @@ My professional website repo. Watch my site change and evolve.
 * Update three.JS
 * Upgrade Icons to Font Awesome
 * Build out body/footer
+* Logo design
+* Business cards?
