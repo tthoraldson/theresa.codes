@@ -12,12 +12,13 @@ h1 {
 
 canvas {
   background: #000;
+  /* position: fixed; */
 }
 
 /* Classes */
 .svg-size {
    width: 8em;
-   height: 8em%;
+   height: 8em;
 }
 
 .aws-certs {
@@ -26,7 +27,7 @@ canvas {
 
 /* IDs */
 #header {
-  position: fixed;
+  position: absolute;
   padding: 1em;
 
   top: 30%;
@@ -52,20 +53,40 @@ canvas {
     font-size: 6em;
 }
 
-#header a:link,
-#header a:visited,
-#header a:active,
-#header a:hover{
-  text-decoration: none;
-}
-
 #social-icons {
   text-align: center;
   padding-top: 3%;
   font-size: 60px;
 }
 
+#social-icons a:link,
+#social-icons a:visited,
+#social-icons a:active,
+#social-icons a:hover{
+  text-decoration: none;
+}
+
 #digital-badges {
   padding-top: 10px;
   text-align: center;
+}
+
+#navbar {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+
+  
+  font-size: 50px;
+
+  height: 10%;
+  width: 100%;
+
+  position: absolute;
+  top: 90%;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
