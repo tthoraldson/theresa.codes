@@ -20,10 +20,6 @@ main {
   top: 110%;
   color: #FFF;
 }
-
-footer {
-  position: absolute;
-}
 /* Classes */
 .svg-size {
    width: 8em;
