@@ -4,6 +4,7 @@ var header = document.getElementById("navbar");
 var sticky = header.offsetTop - (header.offsetTop/10);
 
 function myFunction() {
+    console.log(header.offsetTop);
   if (window.pageYOffset > sticky) {
     header.classList.remove("not-sticky");
     header.classList.add("sticky");
