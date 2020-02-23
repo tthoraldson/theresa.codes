@@ -1,7 +1,7 @@
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("navbar");
-var sticky = window.innerHeight - (window.innerHeight/10);
+var sticky = window.innerHeight // - (window.innerHeight/10);
 
 function myFunction() {
     console.log(header.offsetTop);

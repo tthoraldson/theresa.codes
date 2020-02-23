@@ -31,7 +31,7 @@ main {
 
 .not-sticky {
   position: absolute;
-  top: 90%;
+  top: 100%;
 }
 
 .sticky {
@@ -49,6 +49,18 @@ main {
   right: 20%;
 
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+#chevron {
+  position: absolute;
+
+  top: 90%;
+  left: 40%;
+  right: 40%;
+
+  text-align: center;
+  font-size: 7em;
+  color: white;
 }
 
 #header h1,
