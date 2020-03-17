@@ -6,3 +6,4 @@ Currently working on oving this page to serverless and adding more three.js func
 - clean up main stylesheet 
 - add tech ladieds founder banner
 - modernize javascript stuff
+- HECK YES SERVERLESS
