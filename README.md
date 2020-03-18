@@ -5,5 +5,6 @@ Currently working on oving this page to serverless and adding more three.js func
 - eventual re-write for three.js boilerplate
 - clean up main stylesheet 
 - add tech ladieds founder banner
+  - fix footer layout
 - modernize javascript stuff
 - HECK YES SERVERLESS
