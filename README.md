@@ -8,3 +8,4 @@ Currently working on oving this page to serverless and adding more three.js func
   - fix footer layout
 - modernize javascript stuff
 - HECK YES SERVERLESS
+- pick a framework, already
