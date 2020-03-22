@@ -9,4 +9,4 @@ Currently working on oving this page to serverless and adding more three.js func
 - modernize javascript stuff
 - HECK YES SERVERLESS
 - pick a framework, already
-- unit testing!!!
+- unit testing!
