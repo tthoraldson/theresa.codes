@@ -4,6 +4,4 @@
 
 // logic with random triggers
 
-
-
 // cool function zone

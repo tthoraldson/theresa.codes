@@ -59,12 +59,6 @@ function render() {
 
   raycaster.setFromCamera( mouse, camera );
 
-  var intersects = raycaster.intersectObjects( scene.children );
-
-  for ( var i = 0; i < intersects.length; i++ ) {
-		intersects[i].object.material.color.set( 0xff0000 );
-	}
-
 
   for (x=0; x<triangleCount; x++){
     objectList[x].geometry.verticesNeedUpdate = true;
@@ -160,4 +154,9 @@ function onMouseMove( event ) {
 	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
 	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 
+  var intersects = raycaster.intersectObjects( scene.children );
+
+  for ( var i = 0; i < intersects.length; i++ ) {
+		intersects[i].object.material.color.set( 0xff0000 );
+	}
 }
