@@ -10,4 +10,6 @@
 - Random scene genrator ideas
 - I think it's called babbel
 - Multiple browser tests`?
-- Amplify AWS?
+- Amplify AWS
+- logo logo logo
+- ?
