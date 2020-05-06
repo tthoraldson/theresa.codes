@@ -12,4 +12,4 @@
 - Multiple browser tests`?
 - Amplify AWS
 - logo logo logo
-- ?
+- need area for blog content/publications
