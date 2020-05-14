@@ -13,4 +13,5 @@
 - Amplify AWS
 - logo logo logo
 - need area for blog content/publication
-- AR token?
+  - RSS from Medium, other publications
+- AR token
