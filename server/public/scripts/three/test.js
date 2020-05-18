@@ -154,9 +154,11 @@ function onMouseMove( event ) {
 	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
 	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 
+  console.log(scene.children);
+  // scene.children.color.set( 0xFFFFFF )
   var intersects = raycaster.intersectObjects( scene.children );
 
   for ( var i = 0; i < intersects.length; i++ ) {
-		intersects[i].object.material.color.set( 0xff0000 );
+    intersects[i].object.material.color.set( 0xff0000 );
 	}
 }
