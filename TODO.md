@@ -15,4 +15,5 @@
 - need area for blog content/publication
   - RSS from Medium, other publications
 - AR token
-- possible AWS db project?
+- possible AWS db project
+- :D?
