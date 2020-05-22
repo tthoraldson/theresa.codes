@@ -6,13 +6,19 @@ const zPoint = -1000;
 const maxVelocity = 0.5;
 let controls;
 var objectList = [];
+var cameraCenter = new THREE.Vector3();
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
+
+var mouseX = 0, mouseY = 0;
 
 
 // Create an empty scene
 var scene = new THREE.Scene();
 
 // Create a basic perspective camera
-var camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 0.1, 3000 );
+camera = new THREE.PerspectiveCamera (45, window.innerWidth/window.innerHeight, 1, 10000);
+camera.position.z = 500;
 
 // Create Raycaster, Mouse
 var raycaster = new THREE.Raycaster();
@@ -38,6 +44,12 @@ var renderer = new THREE.WebGLRenderer({
 // Configure renderer clear color
 renderer.setClearColor("#000000");
 
+controls = new THREE.OrbitControls (camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.9;
+controls.enableZoom = false;
+controls.autoRotate = false;
+
 // Configure renderer size
 renderer.setSize( window.innerWidth, window.innerHeight );
 
@@ -55,6 +67,12 @@ render();
 ///////////////
 
 function render() {
+  controls.update();
+
+  camera.position.x += ( mouseX - camera.position.x ) * .005;
+  camera.position.y += ( - mouseY - camera.position.y ) * .005;
+  camera.lookAt( scene.position );
+  
   requestAnimationFrame( render );
 
   raycaster.setFromCamera( mouse, camera );
@@ -151,14 +169,21 @@ function createTriangle(){
 }
 
 function onMouseMove( event ) {
-	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-  console.log(scene.children);
-  // scene.children.color.set( 0xFFFFFF )
+	mouseX = ( event.clientX - windowHalfX );
+  mouseY = ( event.clientY - windowHalfY );
+        
   var intersects = raycaster.intersectObjects( scene.children );
 
   for ( var i = 0; i < intersects.length; i++ ) {
-    intersects[i].object.material.color.set( 0xff0000 );
+    //intersects[i].object.material.color.set( 0xff0000 );
 	}
+}
+
+function updateCamera() {
+  //offset the camera x/y based on the mouse's position in the window
+  //camera.position.x = cameraCenter.x + (cameraHorzLimit * mouse.x);
+  //camera.position.y = cameraCenter.y + (cameraVertLimit * mouse.y);
+
+  //camera.position.x = ( mouseX - windowHalfX ) * 10;
+	//camera.position.y = ( mouseY - windowHalfY ) * 10;
 }
