@@ -9,7 +9,6 @@ var objectList = [];
 var cameraCenter = new THREE.Vector3();
 var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
-
 var mouseX = 0, mouseY = 0;
 
 
@@ -112,7 +111,7 @@ function randomPoint(){
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize( window.innerWidth, window.innerHeight * 0.9 );
+  renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
 function createControls() {
