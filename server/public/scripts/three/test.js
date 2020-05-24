@@ -96,12 +96,12 @@ function getRandomNum(min, max) {
 
 // random width, according to device width
 function randomWidth(){
-  return getRandomNum(-( window.innerWidth/2), (window.innerWidth/2));
+  return getRandomNum(-( window.innerWidth), (window.innerWidth));
 }
 
 // random height, according to decice height
 function randomHeight(){
-  return getRandomNum(-( window.innerHeight/2), (window.innerHeight/2))
+  return getRandomNum(-( window.innerHeight), (window.innerHeight))
 }
 
 function randomPoint(){
