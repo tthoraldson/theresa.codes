@@ -1,11 +1,13 @@
 import React from 'react';
+
+import './vendor/reset.css';
 import './App.css';
-import Header from './main/header';
+import Main from './main/main';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Main />
     </div>
   );
 }
