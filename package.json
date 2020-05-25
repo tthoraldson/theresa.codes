@@ -4,22 +4,43 @@
   "description": "http://www.theresa.ai server",
   "main": "index.js",
   "scripts": {
-    "start": "node server/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-legacy": "node server/app.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tthoraldson/theresa.ai.git"
-  },
+  "repository": "git+https://github.com/tthoraldson/theresa.ai.git",
   "author": "theresa.thoraldson@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tthoraldson/theresa.ai/issues"
   },
-  "homepage": "https://github.com/tthoraldson/theresa.ai#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "@aws-amplify/ui-react": "^0.2.7",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "aws-amplify": "^3.0.12",
+    "express": "^4.15.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1"
   },
-  "devDependencies": {
+  "devDependencies": {},
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
