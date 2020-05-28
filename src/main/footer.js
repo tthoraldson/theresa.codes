@@ -1,4 +1,5 @@
 import React from 'react';
+import scriptLoader from 'react-async-script-loader';
 
 class Footer extends React.Component {
     render() {
@@ -38,4 +39,6 @@ class Footer extends React.Component {
     }
 }
 
-export default Footer;
+export default scriptLoader(
+    ['https://kit.fontawesome.com/992b444137.js']
+)(Footer);

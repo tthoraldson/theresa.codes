@@ -21,8 +21,8 @@ class Main extends React.Component {
                     <Writing />
                     <Experience />
                     <Contact />
-                </main>
-                <Footer/>
+                    <Footer/>
+                </main>  
             </div> 
         );
     }

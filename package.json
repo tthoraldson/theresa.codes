@@ -24,6 +24,7 @@
     "aws-amplify": "^3.0.12",
     "express": "^4.15.2",
     "react": "^16.13.1",
+    "react-async-script-loader": "^0.3.0",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1"
   },
