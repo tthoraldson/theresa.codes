@@ -6,4 +6,5 @@ Currently working on moving this page to serverless and adding more three.js fun
 TODO before merging to master
 - new README with react commands
 - circleci
-- Research further integrations
+- Research further integration 
+- sticky header in reacts
