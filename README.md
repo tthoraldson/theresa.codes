@@ -7,4 +7,4 @@ TODO before merging to master
 - new README with react commands
 - circleci
 - Research further integration 
-- sticky header in reacts
+- sticky header in reacts ?
