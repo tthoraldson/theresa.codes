@@ -28,6 +28,4 @@ class Main extends React.Component {
     }
 }
 
-// sticky header?
-
 export default Main;
