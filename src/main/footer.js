@@ -7,7 +7,7 @@ class Footer extends React.Component {
             <footer>
                 <div id="digital-badges">
                 <a href="https://www.certmetrics.com/amazon/public/badge.aspx?i=9&t=c&d=2018-08-03&ci=AWS00570500">
-                    <img className="aws-certs" alt="AWS Certified Cloud Practitioner Badge" src="media/certifiedCloudPractitioner.png" />
+                    <img className="aws-certs" alt="AWS Certified Cloud Practitioner Badge" src="/../media/certifiedCloudPractitioner.png" />
                 </a>
                 </div>
                 <a href="!#" src="techLadies"> </a>

@@ -1,5 +1,9 @@
 import React from 'react';
 
+// Three.js Components
+
+
+// Main Components
 import Nav from './nav';
 import Header from './header';
 import About from './about';
@@ -13,14 +17,14 @@ class Main extends React.Component {
     render() {
         return (
             <div>
-                <Nav />
+                {/* <Nav /> */}
                 <Header />
                 <main>
-                    <About />
+                    {/* <About />
                     <Portfolio />
                     <Writing />
                     <Experience />
-                    <Contact />
+                    <Contact /> */}
                     <Footer/>
                 </main>  
             </div> 
