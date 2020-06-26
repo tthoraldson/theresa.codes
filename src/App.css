@@ -19,6 +19,12 @@ main {
   top: 110%;
   color: #FFF;
 }
+
+footer {
+  text-align: center;
+  position: relative;
+}
+
 /* Classes */
 .svg-size {
    width: 8em;
