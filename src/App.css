@@ -15,14 +15,9 @@ canvas {
 }
 
 main {
-  position: absolute;
-  top: 110%;
-  color: #FFF;
-}
-
-footer {
-  text-align: center;
   position: relative;
+  top: 30%;
+  color: #FFF;
 }
 
 /* Classes */
@@ -43,6 +38,10 @@ footer {
 .sticky {
   position: fixed;
   top: 0;
+}
+
+.App {
+  padding-top: 40%;
 }
 
 /* IDs */
@@ -99,7 +98,7 @@ footer {
 }
 
 #digital-badges {
-  padding-top: 10px;
+  padding-top: 20px;
   text-align: center;
 }
 

@@ -11,7 +11,6 @@ import Header from './header';
 // import Writing from './writing';
 // import Experience from './experience';
 // import Contact from './contact';
-import Footer from './footer';
 
 class Main extends React.Component {
     render() {
@@ -25,7 +24,7 @@ class Main extends React.Component {
                     <Writing />
                     <Experience />
                     <Contact /> */}
-                    <Footer/>
+                    
                 </main>  
             </div> 
         );

@@ -2,7 +2,7 @@
 import React from 'react'
 import { Canvas } from 'react-three-fiber'
 
-import Scene from './views/scene'
+import ThreeScene from './views/scene'
 import Controls from './components/controls'
 
 class Three extends React.Component {
@@ -11,12 +11,10 @@ class Three extends React.Component {
         return (
             <Canvas>
                 <Controls />
-                <Scene />
+                <ThreeScene />
             </Canvas>
         )
     }
-
-
 }
 
 export default Three;
