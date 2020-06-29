@@ -16,18 +16,18 @@ class Footer extends React.Component {
                     <a href="https://www.linkedin.com/in/theresathoraldson">
                     <i className="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="!#">
+                    {/* <a href="!#">
                     <i className="fab fa-medium-m"></i>
-                    </a>
+                    </a> */}
                     <a href="https://www.twitter.com/tthoraldson">
                     <i className="fab fa-twitter"></i>
                     </a>
                     <a href="https://www.github.com/tthoraldson">
                     <i className="fab fa-github"></i>
                     </a>
-                    <a href="https://stackoverflow.com/users/3776950/tthoraldson">
+                    {/* <a href="https://stackoverflow.com/users/3776950/tthoraldson">
                     <i className="fab fa-stack-overflow"></i>
-                    </a>
+                    </a> */}
                     <a href="https://angel.co/theresa-thoraldson?public_profile=1">
                     <i className="fab fa-angellist"></i>
                     </a>

@@ -4,9 +4,9 @@ import { Canvas } from 'react-three-fiber'
 
 import ThreeScene from './views/scene'
 import Controls from './components/controls'
+import scriptLoader from 'react-async-script-loader';
 
 class Three extends React.Component {
-
     render(){
         return (
             <Canvas>
@@ -17,4 +17,7 @@ class Three extends React.Component {
     }
 }
 
-export default Three;
+export default scriptLoader(
+    ['https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js'],
+    '/src/three/temp/test.js'
+)(Three);
