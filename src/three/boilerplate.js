@@ -10,14 +10,12 @@ class Three extends React.Component {
     render(){
         return (
             <Canvas>
-                <Controls />
-                <ThreeScene />
+                {/* <ThreeScene /> */}
             </Canvas>
         )
     }
 }
 
 export default scriptLoader(
-    ['https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js'],
-    '/src/three/temp/test.js'
+    ['https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js']
 )(Three);
