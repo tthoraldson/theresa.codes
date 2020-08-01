@@ -8,7 +8,7 @@ class ThreeScene extends React.Component {
     console.log('render hit');
     return(
       <div>
-        {/* <ThreeTriangle/> */}
+        <ThreeTriangle/>
       </div>
     );
   } 

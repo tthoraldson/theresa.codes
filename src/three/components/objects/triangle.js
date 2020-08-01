@@ -6,7 +6,9 @@ class ThreeTriangle extends React.Component {
     render(){
 
         return(
-            <div></div>
+            <div>
+                <p>Henlo</p>
+            </div>
         )
     }
 }
