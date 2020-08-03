@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { mesh, Geometry, useFrame } from 'react-three-fiber'
 
 import { randomHeight } from '../../utils/random'
 
 function triangle(props) {
-    //const mesh = useRef()
+    const mesh = useRef()
     
     return (
     <mesh>
