@@ -1,19 +1,18 @@
-import React, { useRef, useState } from 'react'
-import { mesh, Geometry, useFrame } from 'react-three-fiber'
+import React, { useRef, useState } from "react"
+import { mesh, useFrame } from 'react-three-fiber'
 
 import { randomHeight } from '../../utils/random'
 
-function triangle(props) {
+function Triangle(props) {
     const mesh = useRef()
     
     return (
     <mesh>
-        {...props}
         ref={mesh}
-        <Geometry args={[1, 1, 1]}/>
+        <geometry args={[1, 1, 1]}/>
     </mesh>
     )
     
 }
 
-export default triangle;
+export default Triangle;
