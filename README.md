@@ -8,3 +8,4 @@ TODO before merging to master
 - circleci
 - Research further integration 
 - sticky header in reacts ?
+- Remove legacy folders/files
