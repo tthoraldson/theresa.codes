@@ -1,13 +1,13 @@
 import React from 'react'
 
-import ThreeScene from './views/scene'
+import Scene from './views/scene'
 // import scriptLoader from 'react-async-script-loader';
 
 class Three extends React.Component {
     render(){
         return (
             <div>
-                <ThreeScene />
+                <Scene />
             </div>
         )
     }

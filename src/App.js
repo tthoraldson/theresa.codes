@@ -2,15 +2,15 @@ import React from 'react';
 
 import './vendor/reset.css';
 import './App.css';
-// import Main from './main/main';
+import Main from './main/main';
 import Three from './three/boilerplate';
 
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Three />
-      {/* <Main /> */}
+      <Main className="Content"/>
     </div>
   );
 }

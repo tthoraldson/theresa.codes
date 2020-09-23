@@ -12,6 +12,7 @@ h1 {
 canvas {
   background: #000;
   position: fixed;
+  padding-top: 0;
 }
 
 main {
@@ -40,7 +41,7 @@ main {
   top: 0;
 }
 
-.App {
+.Content {
   padding-top: 40%;
 }
 
