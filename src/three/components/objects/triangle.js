@@ -1,18 +1,22 @@
 import React, { useRef, useState } from "react"
-import { mesh, useFrame } from 'react-three-fiber'
 
-// import { randomHeight } from '../../utils/random'
-// things!!
 function Triangle(props) {
     const mesh = useRef()
+    const [hovered, setHover] = useState(false)
+    const [active, setActive] = useState(false)
     
     return (
-    <mesh>
-        ref={mesh}
-        <geometry args={[1, 1, 1]}/>
-    </mesh>
+        <mesh
+            {...props}
+            ref={mesh}
+            //scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
+            onClick={(e) => setActive(!active)}
+            onPointerOver={(e) => setHover(true)}
+            onPointerOut={(e) => setHover(false)}>
+            <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+            <meshStandardMaterial attach="material" color={hovered ? 'orange' : 'hotpink'} />
+        </mesh>
     )
-    
-}
+}  
 
 export default Triangle;
