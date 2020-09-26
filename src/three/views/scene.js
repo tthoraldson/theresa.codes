@@ -10,7 +10,7 @@ class Scene extends React.Component {
       <Canvas>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        <ThreeTriangle wireframe position={[0, 0, 0]} />
+        <ThreeTriangle position={[0, 0, 0]} test="hello" />
       </Canvas>
     );
   } 
