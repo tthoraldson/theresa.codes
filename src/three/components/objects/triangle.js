@@ -3,7 +3,7 @@ import { useFrame} from "react-three-fiber"
 
 function Triangle(props) {
     const mesh = useRef()
-
+    console.log(props.test);
     return (
         <mesh>
         <geometry attach="geometry">
